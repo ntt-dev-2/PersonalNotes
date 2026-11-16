@@ -1,3 +1,4 @@
+
 name: Deploy Astro to GitHub Pages
 
 on:
@@ -16,19 +17,26 @@ jobs:
     env:
       SITE_URL: ${{ vars.SITE_URL }}
       BASE_PATH: ${{ vars.BASE_PATH }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Build and upload
         uses: withastro/action@v6
         with:
           node-version: '24'
+          package-manager: npm
+          cache: false
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Publish
         id: deployment
