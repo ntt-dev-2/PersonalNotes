@@ -4,7 +4,7 @@ import { defineConfig } from 'astro/config';
 // Ví dụ: SITE_URL=https://yourname.github.io, BASE_PATH=/personal-notes
 // Đối với repo yourname.github.io hoặc custom domain, đặt BASE_PATH=/.
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://example.github.io',
-  base: process.env.BASE_PATH || '/personal-notes',
+  site: process.env.SITE_URL || 'https://peterphd.github.io',
+  base: process.env.BASE_PATH || '/PersonalNotes',
   trailingSlash: 'always',
 });
